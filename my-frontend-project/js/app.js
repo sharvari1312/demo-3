@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const showView = (viewName) => {
     Object.values(views).forEach(v => {
-      if(v) v.classList.add('hidden');
+      if (v) v.classList.add('hidden');
     });
-    if(views[viewName]) {
+    if (views[viewName]) {
       views[viewName].classList.remove('hidden');
       window.scrollTo(0, 0);
     }
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showView('auth');
     });
   }
-  
+
   // Auth view toggling (Signup vs Login)
   const tabSignup = document.getElementById('tab-signup');
   const tabLogin = document.getElementById('tab-login');
@@ -71,11 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  if(tabSignup) tabSignup.addEventListener('click', () => switchAuthTab('signup'));
-  if(tabLogin) tabLogin.addEventListener('click', () => switchAuthTab('login'));
-  
+  if (tabSignup) tabSignup.addEventListener('click', () => switchAuthTab('signup'));
+  if (tabLogin) tabLogin.addEventListener('click', () => switchAuthTab('login'));
+
   const linkToSignup = document.getElementById('link-to-signup');
-  if(linkToSignup) {
+  if (linkToSignup) {
     linkToSignup.addEventListener('click', (e) => {
       e.preventDefault();
       switchAuthTab('signup');
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mobile number integer validation
   const mobileInput = document.getElementById('signup-mobile');
-  if(mobileInput) {
+  if (mobileInput) {
     ValidationUtil.enforceIntegerOnly(mobileInput);
   }
 
@@ -103,23 +103,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const showFormStep = (step) => {
     // Hide all steps
     for (let i = 1; i <= totalSteps; i++) {
-        const stepEl = document.getElementById(`form-step-${i}`);
-        if(stepEl) stepEl.classList.add('hidden');
-        
-        // Update progress tabs UI
-        const tabEl = document.getElementById(`prog-tab-${i}`);
-        if(tabEl) {
-            tabEl.classList.remove('active');
-            if (i === step) tabEl.classList.add('active');
-        }
+      const stepEl = document.getElementById(`form-step-${i}`);
+      if (stepEl) stepEl.classList.add('hidden');
+
+      // Update progress tabs UI
+      const tabEl = document.getElementById(`prog-tab-${i}`);
+      if (tabEl) {
+        tabEl.classList.remove('active');
+        if (i === step) tabEl.classList.add('active');
+      }
     }
     // Show current step
     const currentEl = document.getElementById(`form-step-${step}`);
-    if(currentEl) currentEl.classList.remove('hidden');
+    if (currentEl) currentEl.classList.remove('hidden');
 
     // Update Step indicator text
     const stepText = document.getElementById('current-step-text');
-    if(stepText) stepText.textContent = `Step ${step} of ${totalSteps}`;
+    if (stepText) stepText.textContent = `Step ${step} of ${totalSteps}`;
 
     // Manage standard buttons visibility
     const btnBack = document.getElementById('btn-back');
@@ -127,13 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSubmit = document.getElementById('btn-submit');
 
     if (btnBack) btnBack.style.visibility = step === 1 ? 'hidden' : 'visible';
-    
+
     if (step === totalSteps) {
-        if(btnNext) btnNext.classList.add('hidden');
-        if(btnSubmit) btnSubmit.classList.remove('hidden');
+      if (btnNext) btnNext.classList.add('hidden');
+      if (btnSubmit) btnSubmit.classList.remove('hidden');
     } else {
-        if(btnNext) btnNext.classList.remove('hidden');
-        if(btnSubmit) btnSubmit.classList.add('hidden');
+      if (btnNext) btnNext.classList.remove('hidden');
+      if (btnSubmit) btnSubmit.classList.add('hidden');
     }
 
     // Save current step to custom dataset to track state
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Form Navigation bindings
   const btnNext = document.getElementById('btn-next');
-  if(btnNext) {
+  if (btnNext) {
     btnNext.addEventListener('click', () => {
       const formView = document.getElementById('view-form');
       let curr = parseInt(formView.dataset.currentStep || '1');
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const btnBack = document.getElementById('btn-back');
-  if(btnBack) {
+  if (btnBack) {
     btnBack.addEventListener('click', () => {
       const formView = document.getElementById('view-form');
       let curr = parseInt(formView.dataset.currentStep || '1');
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const btnSubmit = document.getElementById('btn-submit');
-  if(btnSubmit) {
+  if (btnSubmit) {
     btnSubmit.addEventListener('click', () => {
       showView('results');
       renderResults();
@@ -169,27 +169,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const btnClearData = document.querySelectorAll('.btn-clear-data');
   btnClearData.forEach(btn => {
-      btn.addEventListener('click', () => {
-          if(confirm("Are you sure you want to clear all form data?")) {
-              StorageUtil.clearAll();
-              const inputs = document.querySelectorAll('input, select, textarea');
-              inputs.forEach(input => {
-                  if(input.type === 'checkbox' || input.type === 'radio') input.checked = false;
-                  else input.value = '';
-              });
-              showFormStep(1); // Optional: reset to step 1
-          }
-      });
+    btn.addEventListener('click', () => {
+      if (confirm("Are you sure you want to clear all form data?")) {
+        StorageUtil.clearAll();
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+          if (input.type === 'checkbox' || input.type === 'radio') input.checked = false;
+          else input.value = '';
+        });
+        showFormStep(1); // Optional: reset to step 1
+      }
+    });
   });
 
   // Render Results Page
   const renderResults = () => {
     const listContainer = document.getElementById('scholarships-list');
-    if(!listContainer) return;
-    
+    if (!listContainer) return;
+
     listContainer.innerHTML = ''; // clear
     const data = MockAPI.getScholarships();
-    
+
     data.forEach(sc => {
       const card = document.createElement('div');
       card.className = 'scholarship-card';
@@ -237,8 +237,8 @@ document.addEventListener('DOMContentLoaded', () => {
     chatWindow.classList.toggle('open');
   };
 
-  if(chatFab) chatFab.addEventListener('click', toggleChat);
-  if(chatClose) chatClose.addEventListener('click', toggleChat);
+  if (chatFab) chatFab.addEventListener('click', toggleChat);
+  if (chatClose) chatClose.addEventListener('click', toggleChat);
 
   const addChatMessage = (text, isBot) => {
     const msgDiv = document.createElement('div');
@@ -248,23 +248,38 @@ document.addEventListener('DOMContentLoaded', () => {
     chatBody.scrollTop = chatBody.scrollHeight;
   };
 
-  const handleChatSend = () => {
+  const handleChatSend = async () => {
     const text = chatInput.value.trim();
-    if(text) {
+    if (text) {
       addChatMessage(text, false);
       chatInput.value = '';
-      
-      // Mock delay before reply
-      setTimeout(() => {
-        addChatMessage(MockAPI.getChatbotReply(text), true);
-      }, 600);
+
+      try {
+        const response = await fetch('http://127.0.0.1:8000/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ message: text })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          addChatMessage(data.reply, true);
+        } else {
+          addChatMessage('Error: Server returned an invalid response.', true);
+        }
+      } catch (error) {
+        console.error('Chat error:', error);
+        addChatMessage('Error: Cannot connect to the server.', true);
+      }
     }
   };
 
-  if(chatSendBtn) chatSendBtn.addEventListener('click', handleChatSend);
-  if(chatInput) {
+  if (chatSendBtn) chatSendBtn.addEventListener('click', handleChatSend);
+  if (chatInput) {
     chatInput.addEventListener('keypress', (e) => {
-      if(e.key === 'Enter') handleChatSend();
+      if (e.key === 'Enter') handleChatSend();
     });
   }
 
