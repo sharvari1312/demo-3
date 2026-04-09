@@ -1,0 +1,11 @@
+{
+  "name": "scholarpath-frontend",
+  "version": "1.0.0",
+  "description": "Pure frontend UI for ScholarPath scholarship matching portal",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "author": "",
+  "license": "ISC"
+}

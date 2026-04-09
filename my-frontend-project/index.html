@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScholarPath - Find the right scholarship for your profile</title>
+  <meta name="description" content="ScholarPath helps students discover eligible scholarships, organize documents, and track deadlines.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <span>ScholarPath</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#" id="nav-how-it-works">How it works</a>
+        <a href="#" id="nav-login">Login/Signup</a>
+        <button class="btn-live">
+          <div class="live-dot"></div>
+          AI matching live
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- View 1: Landing Page Container -->
+  <section id="view-landing">
+    <div class="hero-section">
+      <h1>Find the right scholarship <br>for your profile</h1>
+      <p>ScholarPath helps students from every background discover eligible scholarships, organize documents, and track deadlines in one clean flow.</p>
+      
+      <div class="hero-stats">
+        <div class="stat">
+          <h3>5000+</h3>
+          <p>Scholarships indexed</p>
+        </div>
+        <div class="stat">
+          <h3>96%</h3>
+          <p>Best match accuracy</p>
+        </div>
+        <div class="stat">
+          <h3>24/7</h3>
+          <p>AI guidance</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-cards">
+      <div class="feature-card">
+        <h3>Personalized matching</h3>
+        <p>Get scholarships ranked by income, category, domicile, marks, course type, and institution details.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Clean student flow</h3>
+        <p>One guided form collects everything needed for eligibility checks without making the UI feel heavy.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Fast results</h3>
+        <p>Review amount, deadline, match score, and scholarship type in a simple card layout.</p>
+      </div>
+    </div>
+
+    <div class="how-it-works-section">
+      <h2>How it works</h2>
+      <p class="text-center">From signup to matched scholarships</p>
+
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Create account</h3>
+            <p>Sign up with basic details and start building your student profile.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Fill your profile</h3>
+            <p>Add academic, financial, category, and institution information.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Get AI-ranked matches</h3>
+            <p>We compare your profile with scholarship rules and score the best options.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Track next steps</h3>
+            <p>See deadlines, required documents, and likely-fit scholarships in one place.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-4 mb-4">
+        <button class="btn-primary" id="btn-create-profile" style="font-size: 1.1rem; padding: 1rem 2rem;">Create Profile Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- View 2: Authentication -->
+  <section id="view-auth" class="hidden">
+    <div class="app-container">
+      <div class="card-main split-layout">
+        <div class="split-left">
+          <h2>Your scholarship journey starts here</h2>
+          <p>Built for students who need clarity, not clutter. Create your account, complete your profile once, and get scholarship suggestions instantly.</p>
+        </div>
+        <div class="split-right">
+          <div class="auth-tabs">
+            <button class="auth-tab active" id="tab-signup">Sign up</button>
+            <button class="auth-tab" id="tab-login">Login</button>
+          </div>
+
+          <!-- Signup -->
+          <div id="form-signup">
+            <h2 class="serif-heading mb-1">Create an account</h2>
+            <p class="mb-4 text-muted" style="color:var(--text-muted)">Get started with your scholarship profile.</p>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full name <span class="required">*</span></label>
+                <input type="text" name="signup-name" placeholder="Eg. Priya Sharma">
+              </div>
+              <div class="form-group">
+                <label>Email <span class="required">*</span></label>
+                <input type="email" name="signup-email" placeholder="you@example.com">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Mobile number <span class="required">*</span></label>
+                <input type="text" id="signup-mobile" name="signup-mobile" placeholder="Mobile Number" inputmode="numeric">
+              </div>
+              <div class="form-group">
+                <label>Password <span class="required">*</span></label>
+                <input type="password" name="signup-pwd" placeholder="Create a password">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Current level</label>
+                <select name="signup-level">
+                  <option value="">Select Level</option>
+                  <option value="school">School (10th/12th)</option>
+                  <option value="ug">Undergraduate (UG)</option>
+                  <option value="pg">Postgraduate (PG)</option>
+                  <option value="phd">PhD / Research</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Home state</label>
+                <select name="signup-state">
+                  <option value="">Select State</option>
+                  <option value="MH">Maharashtra</option>
+                  <option value="KA">Karnataka</option>
+                  <option value="DL">Delhi</option>
+                  <option value="TN">Tamil Nadu</option>
+                  <option value="UP">Uttar Pradesh</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="btn-primary w-100 btn-auth-submit" style="width: 100%;">Create Account</button>
+            <div class="text-center mt-4 mb-2" style="color:var(--text-muted)">OR</div>
+            <button class="btn-google"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='18'><path fill='%234285F4' d='M23.74 12.27c0-.85-.08-1.68-.22-2.48H12v4.69h6.58A5.62 5.62 0 0 1 16.14 18l3.96 3.07a11.97 11.97 0 0 0 3.63-8.8H23.74z'/><path fill='%2334A853' d='M12 24c3.31 0 6.08-1.1 8.1-2.97l-3.96-3.07a7.51 7.51 0 0 1-11.23-3.95L.82 17.15A11.99 11.99 0 0 0 12 24z'/><path fill='%23FBBC05' d='M4.9 14a7.27 7.27 0 0 1 0-4L.82 6.85a11.99 11.99 0 0 0 0 10.3l4.08-3.15z'/><path fill='%23EA4335' d='M12 4.88c1.8 0 3.42.62 4.69 1.83l3.52-3.52A11.97 11.97 0 0 0 12 0 11.99 11.99 0 0 0 .82 6.85L4.9 10A7.37 7.37 0 0 1 12 4.88z'/></svg>" alt=""> Continue with Google</button>
+          </div>
+
+          <!-- Login -->
+          <div id="form-login" class="hidden">
+            <h2 class="serif-heading mb-1">Welcome back</h2>
+            <p class="mb-4 text-muted" style="color:var(--text-muted)">Log in to continue tracking your scholarship applications.</p>
+            
+            <div class="form-group">
+              <label>Email <span class="required">*</span></label>
+              <input type="email" name="login-email" placeholder="you@example.com">
+            </div>
+            <div class="form-group mb-4">
+              <label>Password <span class="required">*</span></label>
+              <input type="password" name="login-pwd" placeholder="Enter your password">
+            </div>
+
+            <button class="btn-primary w-100 btn-auth-submit" style="width: 100%;">Login</button>
+            <div class="text-center mt-4 mb-2" style="color:var(--text-muted)">OR</div>
+            <button class="btn-google"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='18'><path fill='%234285F4' d='M23.74 12.27c0-.85-.08-1.68-.22-2.48H12v4.69h6.58A5.62 5.62 0 0 1 16.14 18l3.96 3.07a11.97 11.97 0 0 0 3.63-8.8H23.74z'/><path fill='%2334A853' d='M12 24c3.31 0 6.08-1.1 8.1-2.97l-3.96-3.07a7.51 7.51 0 0 1-11.23-3.95L.82 17.15A11.99 11.99 0 0 0 12 24z'/><path fill='%23FBBC05' d='M4.9 14a7.27 7.27 0 0 1 0-4L.82 6.85a11.99 11.99 0 0 0 0 10.3l4.08-3.15z'/><path fill='%23EA4335' d='M12 4.88c1.8 0 3.42.62 4.69 1.83l3.52-3.52A11.97 11.97 0 0 0 12 0 11.99 11.99 0 0 0 .82 6.85L4.9 10A7.37 7.37 0 0 1 12 4.88z'/></svg>" alt=""> Continue with Google</button>
+            
+            <div class="text-center mt-4" style="font-size:0.9rem;">
+              Need an account? <a href="#" id="link-to-signup">Sign up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- View 3: Profile Wizard -->
+  <section id="view-form" class="hidden" data-current-step="1">
+    <div class="app-container">
+      <div class="card-main">
+        
+        <!-- Progress Header -->
+        <div class="progress-container">
+          <div class="progress-tabs">
+            <div class="progress-tab active" id="prog-tab-1">1 Basic Info</div>
+            <div class="progress-tab" id="prog-tab-2">2 Academic</div>
+            <div class="progress-tab" id="prog-tab-3">3 Financial</div>
+            <div class="progress-tab" id="prog-tab-4">4 Category</div>
+            <div class="progress-tab" id="prog-tab-5">5 Institution</div>
+            <div class="progress-tab" id="prog-tab-6">6 Eligibility</div>
+          </div>
+        </div>
+
+        <!-- Step 1: Basic Info -->
+        <div id="form-step-1" class="form-step">
+          <div class="form-header">
+            <h2>Basic Student Information</h2>
+            <p>Let's start with some fundamental details to help us identify the right scholarships for you.</p>
+          </div>
+          <div class="form-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full name <span class="required">*</span></label>
+                <input type="text" name="f-fullname" placeholder="Eg. Priya Sharma">
+              </div>
+              <div class="form-group">
+                <label>Date of birth <span class="required">*</span></label>
+                <input type="date" name="f-dob">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Gender <span class="required">*</span></label>
+                <select name="f-gender">
+                  <option value="">Select gender</option>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Nationality <span class="required">*</span></label>
+                <select name="f-nationality">
+                  <option value="">Select nationality</option>
+                  <option value="indian">Indian</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>State <span class="required">*</span></label>
+                <select name="f-state">
+                  <option value="">Select state</option>
+                  <option value="MH">Maharashtra</option>
+                  <option value="DL">Delhi</option>
+                  <option value="UP">Uttar Pradesh</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>City / District</label>
+                <input type="text" name="f-city" placeholder="Eg. Pune">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Academic Details -->
+        <div id="form-step-2" class="form-step hidden">
+          <div class="form-header">
+            <h2>Academic Details</h2>
+            <p>Academic background is the most critical factor for scholarship eligibility. Please fill this in carefully.</p>
+          </div>
+          <div class="form-body">
+            <label class="mb-2" style="display:block">Current education level options:</label>
+            <div class="options-grid mb-3">
+              <label class="option-card"><input type="radio" name="f-edu-level" value="school"> 📚 School (10th/12th)</label>
+              <label class="option-card"><input type="radio" name="f-edu-level" value="diploma"> 🏫 Diploma / ITI</label>
+              <label class="option-card"><input type="radio" name="f-edu-level" value="ug"> 🎓 Undergraduate (UG)</label>
+              <label class="option-card"><input type="radio" name="f-edu-level" value="pg"> 📖 Postgraduate (PG)</label>
+              <label class="option-card"><input type="radio" name="f-edu-level" value="phd"> 🔬 PhD / Research</label>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Stream <span class="required">*</span></label>
+                <select name="f-stream">
+                  <option value="">Select stream</option>
+                  <option value="science">Science / Engineering</option>
+                  <option value="commerce">Commerce</option>
+                  <option value="arts">Arts / Humanities</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Specific course / Degree</label>
+                <input type="text" name="f-degree" placeholder="Eg. B.Tech Computer Science">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Current year <span class="required">*</span></label>
+                <select name="f-year">
+                  <option value="">Select year</option>
+                  <option value="1">1st Year</option>
+                  <option value="2">2nd Year</option>
+                  <option value="3">3rd Year</option>
+                  <option value="4">4th Year</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>College / University</label>
+                <input type="text" name="f-college" placeholder="Eg. Savitribai Phule Pune University">
+              </div>
+            </div>
+            
+            <label class="mb-2 mt-4" style="display:block; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px; color:var(--text-muted); text-align:center;">Marks and Scores</label>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Current CGPA / %</label>
+                <input type="number" step="0.1" name="f-cgpa" placeholder="Eg. 8.4">
+              </div>
+              <div class="form-group">
+                <label>12th grade marks (%)</label>
+                <input type="number" name="f-12marks" placeholder="Eg. 88">
+              </div>
+              <div class="form-group">
+                <label>10th grade marks (%)</label>
+                <input type="number" name="f-10marks" placeholder="Eg. 92">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Financial Background -->
+        <div id="form-step-3" class="form-step hidden">
+          <div class="form-header">
+            <h2>Financial Background</h2>
+            <p>Most government scholarships are income-based. This information is kept completely private and used only for matching.</p>
+          </div>
+          <div class="form-body">
+            <label class="mb-2" style="display:block">Family annual income category <span class="required">*</span></label>
+            <div class="options-grid mb-4">
+              <label class="option-card"><input type="radio" name="f-income-tier" value="1L"> Up to ₹1 lakh</label>
+              <label class="option-card"><input type="radio" name="f-income-tier" value="2.5L"> ₹1–2.5 lakh</label>
+              <label class="option-card"><input type="radio" name="f-income-tier" value="5L"> ₹2.5–5 lakh</label>
+              <label class="option-card"><input type="radio" name="f-income-tier" value="8L"> ₹5–8 lakh</label>
+              <label class="option-card"><input type="radio" name="f-income-tier" value="over8L"> Above ₹8 lakh</label>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Do you have an income certificate?</label>
+                <select name="f-has-cert">
+                  <option value="">Select</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                  <option value="in_progress">Applied / In progress</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Annual household income (exact)</label>
+                <input type="number" name="f-income-exact" placeholder="₹">
+              </div>
+            </div>
+
+            <label class="mb-2 mt-4" style="display:block">Documents available:</label>
+            <div style="display:flex; flex-direction:column; gap:0.5rem;" class="mb-4">
+              <label><input type="checkbox" name="f-docs" value="income_cert"> Income Certificate — Issued by district authority</label>
+              <label><input type="checkbox" name="f-docs" value="ration_card"> Ration Card — BPL / APL card</label>
+              <label><input type="checkbox" name="f-docs" value="bank_stmt"> Bank Statements — Last 6 months</label>
+              <label><input type="checkbox" name="f-docs" value="itr"> ITR / Form 16 — Income tax return</label>
+            </div>
+
+            <label class="mb-2 mt-4" style="display:block">Upload income proof (optional):</label>
+            <div class="upload-box">
+              <div class="icon">📄</div>
+              <div style="font-weight: 500;">Click to upload or drag and drop</div>
+              <div style="font-size: 0.85rem; margin-top: 0.5rem;">PDF, JPG, PNG — max 5 MB</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Category & Reservation -->
+        <div id="form-step-4" class="form-step hidden">
+          <div class="form-header">
+            <h2>Category & Reservation Details</h2>
+            <p>India's scholarship ecosystem has extensive category-based provisions. Select your relevant categories below.</p>
+          </div>
+          <div class="form-body">
+            <div class="form-group mb-4">
+              <label>Caste / Reservation category</label>
+              <select name="f-caste" style="max-width: 400px;">
+                <option value="">Select category</option>
+                <option value="general">General / Unreserved</option>
+                <option value="obc">Other Backward Class (OBC)</option>
+                <option value="sc">Scheduled Caste (SC)</option>
+                <option value="st">Scheduled Tribe (ST)</option>
+                <option value="ews">Economically Weaker Section (EWS)</option>
+              </select>
+            </div>
+
+            <label class="mb-2" style="display:block">Special status options (Select all that apply):</label>
+            <div class="options-grid mb-4">
+              <label class="option-card"><input type="checkbox" name="f-special" value="minority"> Minority Community — Muslim, Christian, Sikh, etc.</label>
+              <label class="option-card"><input type="checkbox" name="f-special" value="pwd"> Person with Disability — PwD cert required</label>
+              <label class="option-card"><input type="checkbox" name="f-special" value="single_parent"> Single Parent / Orphan — Supporting docs required</label>
+              <label class="option-card"><input type="checkbox" name="f-special" value="transgender"> Transgender — Inclusive scholarship programs</label>
+            </div>
+
+            <div class="info-box">
+              <span style="font-size: 1.2rem;">🔒</span>
+              <div>
+                <strong>Privacy assured:</strong> Your category details are used only for scholarship matching and are never shared with third parties.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Location & Institution -->
+        <div id="form-step-5" class="form-step hidden">
+          <div class="form-header">
+            <h2>Location & Institution Info</h2>
+            <p>Many scholarships are restricted to specific states or institution types.</p>
+          </div>
+          <div class="form-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label>State of domicile <span class="required">*</span></label>
+                <select name="f-domicile">
+                  <option value="">Select state</option>
+                  <option value="MH">Maharashtra</option>
+                  <option value="KA">Karnataka</option>
+                  <option value="DL">Delhi</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Is your domicile state different from study state?</label>
+                <select name="f-state-diff">
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Name of college / school / institution <span class="required">*</span></label>
+                <input type="text" name="f-inst-name" placeholder="Enter institution name">
+              </div>
+              <div class="form-group">
+                <label>Institution type <span class="required">*</span></label>
+                <select name="f-inst-type">
+                  <option value="">Select type</option>
+                  <option value="gov">Government</option>
+                  <option value="gov_aided">Government-Aided</option>
+                  <option value="private">Private</option>
+                  <option value="autonomous">Autonomous / Deemed</option>
+                </select>
+              </div>
+            </div>
+
+            <label class="mb-2 mt-4" style="display:block; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px; color:var(--text-muted); text-align:center;">Annual fees</label>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Tuition fees (per year)</label>
+                <input type="number" name="f-tuition" placeholder="₹">
+              </div>
+              <div class="form-group">
+                <label>Hostel / accommodation fees</label>
+                <input type="number" name="f-hostel" placeholder="₹">
+              </div>
+              <div class="form-group">
+                <label>Other expenses</label>
+                <input type="number" name="f-other-exp" placeholder="₹">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Special Eligibility -->
+        <div id="form-step-6" class="form-step hidden">
+          <div class="form-header">
+            <h2>Special Eligibility Factors</h2>
+            <p>These additional details help us surface niche and specialized scholarships. All fields are optional.</p>
+          </div>
+          <div class="form-body">
+            
+            <label class="mb-2" style="display:block; font-weight:600;">Entrance exam scores:</label>
+            <div class="form-row mb-4">
+              <div class="form-group">
+                <label>JEE Main percentile</label>
+                <input type="number" step="0.01" name="f-jee" placeholder="Eg. 95.5">
+              </div>
+              <div class="form-group">
+                <label>NEET score</label>
+                <input type="number" name="f-neet" placeholder="Eg. 650">
+              </div>
+              <div class="form-group">
+                <label>Other exam name & Score/Rank</label>
+                <input type="text" name="f-other-exam" placeholder="Eg. GATE - AIR 450">
+              </div>
+            </div>
+
+            <label class="mb-2" style="display:block; font-weight:600;">Achievements & activities:</label>
+            <div class="options-grid mb-4">
+              <label class="option-card"><input type="checkbox" name="f-ach" value="sports"> Sports achievement (State/National)</label>
+              <label class="option-card"><input type="checkbox" name="f-ach" value="arts"> Cultural / Arts (Performing/Visual)</label>
+              <label class="option-card"><input type="checkbox" name="f-ach" value="research"> Research interest (Pubs/Projects)</label>
+              <label class="option-card"><input type="checkbox" name="f-ach" value="startup"> Entrepreneurship (Startup/Impact)</label>
+              <label class="option-card"><input type="checkbox" name="f-ach" value="social"> Social service / NCC (Volunteer)</label>
+              <label class="option-card"><input type="checkbox" name="f-ach" value="rural"> Rural background (Village/Tribal)</label>
+            </div>
+
+            <div class="form-group mb-4">
+              <label style="font-weight:600;">Tell us more (optional)</label>
+              <textarea name="f-bio" placeholder="Any specific achievements, publications, or awards you'd like to mention?"></textarea>
+            </div>
+
+            <label class="mb-2" style="display:block; font-weight:600;">Study abroad interest:</label>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Are you interested in international scholarships?</label>
+                <select name="f-abroad">
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Preferred country (if abroad)</label>
+                <input type="text" name="f-abroad-country" placeholder="Eg. USA, UK, Germany">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Footer / Navigation Actions -->
+        <div class="form-footer">
+          <div class="footer-left">
+            <button class="btn-secondary" id="btn-back">← Back</button>
+            <span id="current-step-text" style="font-size:0.9rem; color:var(--text-muted); margin-left:1rem;">Step 1 of 6</span>
+          </div>
+          <div class="footer-right">
+            <button class="btn-clear btn-clear-data">Clear Data</button>
+            <button class="btn-primary" id="btn-next">Next →</button>
+            <button class="btn-primary hidden" id="btn-submit" style="background-color: var(--success-color);">Submit Profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- View 4: Results Page -->
+  <section id="view-results" class="hidden">
+    <div class="app-container">
+      
+      <div class="results-header">
+        <h2 class="serif-heading mb-1" style="font-size: 2.5rem;">Your Matched Scholarships</h2>
+        <p class="text-muted">Based on your completed profile, we found these likely matches.</p>
+        
+        <div class="filters">
+          <span class="filter-chip active">All</span>
+          <span class="filter-chip">Central</span>
+          <span class="filter-chip">State</span>
+          <span class="filter-chip">Merit</span>
+          <span class="filter-chip">Private</span>
+        </div>
+      </div>
+
+      <div id="scholarships-list">
+        <!-- JS dynamically populates this via mock API data -->
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Floating AI Chatbot UI -->
+  <div class="chatbot-container">
+    <div class="chatbot-window" id="chat-window">
+      <div class="chat-header">
+        <div style="font-weight: 600; display:flex; align-items:center; gap:0.5rem;">
+          <div style="width:10px; height:10px; background:#48bb78; border-radius:50%;"></div>
+          ScholarPath AI
+        </div>
+        <button class="chat-close" id="chat-close">&times;</button>
+      </div>
+      <div class="chat-body" id="chat-body">
+        <div class="chat-msg msg-bot">
+          Hello! I'm your ScholarPath assistant. How can I help you with your scholarship journey today?
+        </div>
+      </div>
+      <div class="chat-chips">
+        <div class="chat-chip">Low income scholarships</div>
+        <div class="chat-chip">Required documents</div>
+        <div class="chat-chip">How match score works</div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Type a message..." data-nosave="true">
+        <button class="chat-send" id="chat-send-btn">Send</button>
+      </div>
+    </div>
+    
+    <button class="chatbot-fab" id="chat-fab">
+      💬
+      <span class="chatbot-badge">AI</span>
+    </button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
