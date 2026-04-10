@@ -4,14 +4,12 @@
   "description": "Pure frontend UI for ScholarPath scholarship matching portal",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "dev": "npm start"
   },
   "author": "",
   "license": "ISC",
   "keywords": [],
   "type": "commonjs",
-  "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.2.1"
-  }
+  "dependencies": {}
 }
