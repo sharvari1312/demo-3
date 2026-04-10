@@ -5,7 +5,7 @@ const app = express();
 const port = 8000;
 
 // Enable CORS for the frontend origin
-app.use(cors({ origin: 'http://localhost:59120' }));
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 
 app.post('/chat', (req, res) => {
